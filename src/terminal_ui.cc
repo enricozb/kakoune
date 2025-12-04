@@ -454,8 +454,8 @@ TerminalUI::TerminalUI()
       }},
       m_assistant(assistant_clippy)
 {
-    if (not isatty(1))
-        throw runtime_error("stdout is not a tty");
+    // if (not isatty(1))
+    //     throw runtime_error("stdout is not a tty");
 
     tcgetattr(STDIN_FILENO, &m_original_termios);
 
