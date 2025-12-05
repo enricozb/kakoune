@@ -71,13 +71,14 @@ add-highlighter shared/rust/macro_attributes/ default-region fill meta
 add-highlighter shared/rust/macro_attributes/string region %{(?<!')"} (?<!\\)(\\\\)*" fill string
 add-highlighter shared/rust/macro_attributes/raw_string region -match-capture %{(?<!')r(#*)"} %{"(#*)} fill string
 
-add-highlighter shared/rust/code/operators_arithmetic   regex (\+|-|/|\*|=|\^|&|\||!|>|<|%)=? 0:operator
-add-highlighter shared/rust/code/operators_as           regex \bas\b 0:operator
-add-highlighter shared/rust/code/ref_ref                regex (&\h+[&~@*])[^)=\s\t\r\n] 1:type
-add-highlighter shared/rust/code/ref                    regex ([&~@*])[^)=\s\t\r\n] 1:type
-add-highlighter shared/rust/code/operators_logic        regex &&|\|\| 0:operator
+add-highlighter shared/rust/code/operators_arithmetic regex (\+|-|/|\*|=|\^|&|\||!|>|<|%)=? 0:operator
+add-highlighter shared/rust/code/operators_as         regex \bas\b 0:operator
+add-highlighter shared/rust/code/operators_logic      regex &&|\|\| 0:operator
+add-highlighter shared/rust/code/operators_pattern    regex @ 0:operator
 
-add-highlighter shared/rust/code/lifetime_or_loop_label regex ('([a-zA-Z]\w+|_\w+))\b 1:meta
+add-highlighter shared/rust/code/ref                  regex ([&*~]+)[^&=\s\t\r\n] 1:type
+
+add-highlighter shared/rust/code/lifetime_or_loop_label regex "'[_a-zA-Z]+" 0:meta
 add-highlighter shared/rust/code/namespace              regex \b[a-zA-Z](\w+)?(\h+)?(?=::) 0:module
 add-highlighter shared/rust/code/mod_path_sep           regex :: 0:meta
 add-highlighter shared/rust/code/question_mark          regex \? 0:meta
